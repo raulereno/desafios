@@ -23,7 +23,7 @@ function precioInventario(numeroDeProducto){
 }
 //Funcion que calcula el descuento por metodo de pago en efectivo
 function calcularDescuento(productoElegido){
-        let precio = precioInventario(producto);
+        let precio = precioInventario(productoElegido);
         let descuento = (precio*10)/100;
         return precio-descuento;
 }
