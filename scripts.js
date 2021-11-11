@@ -11,25 +11,19 @@ let producto;
 //-------------------Funciones:---------------------
 //Funcion que mediante el numero elegido devuelve el precio del producto
 function precioInventario(numeroDeProducto){
-    if(numeroDeProducto == 1){
-        return alimento2Kg;
-    }
-    else if(numeroDeProducto == 2){
-        return vacunas;
-    }
-    else if(numeroDeProducto == 3){
-        return consultaGeneral;
+    switch(numeroDeProducto){
+        case 1: return alimento2Kg;
+        case 2: return vacunas;
+        case 3: return consultaGeneral;
     }
 }
 //Funcion que calcula el descuento por metodo de pago en efectivo
-function calcularDescuento(productoElegido){
-        let precio = precioInventario(productoElegido);
+function calcularDescuento(precio){
         let descuento = (precio*10)/100;
         return precio-descuento;
 }
 //Funcion que recibe el numero de producto y la cantidad de cuota, y calcula los intereses dependiendo de las cuotas
-function calcularInteres(numeroDeProducto, cantidadDeCuotas){
-    let precio = precioInventario(numeroDeProducto);
+function calcularInteres(precio, cantidadDeCuotas){
     if((cantidadDeCuotas>=1) && (cantidadDeCuotas<=3)){
         let x = (precio*5)/100;
         return precio + x;
@@ -43,6 +37,12 @@ function calcularInteres(numeroDeProducto, cantidadDeCuotas){
         return precio + x;
     }
 }
+//Funcion que calculo el impuesto al valor agregado de todos los productos.  En el caso de que siempre se aplique a los productos, podria poner directamente la funcion para que los precios de los productos se inicialicen con el iva ya incluido.
+function calcularIVA(precio){
+    let calculo = (precio*21)/100 
+    return precio+calculo
+}
+
 //Eleccion de usuario
 do{
 producto = parseInt(prompt("Ingrese la opción del producto a comprar:\n 1.Alimento para animales \n 2.Medicina \n 3.Consulta Veterinaria"));
@@ -58,16 +58,16 @@ do{
     metodoDePago = parseInt(prompt("Ustedes pagara con: \n1.Efectivo. Esta opcion tiene un descuento del 10% \n2.Debito. No posee ni intereses ni descuento \n3.Credito. Dependiendo de la cantidad de cuotas aumenta el interes\n4.Salir"));
 
     if(metodoDePago == 1){
-        precioFinal = calcularDescuento(producto);
+        precioFinal = calcularDescuento(calcularIVA(precioInventario(producto)));
         alert("El total a pagar es: $"+precioFinal+" .Muchas gracias por su compra");
     }
     else if(metodoDePago == 2) {
-        precioFinal = precioInventario(producto);
+        precioFinal = calcularIVA(precioInventario(producto));
         alert("El total a pagar es: $"+precioFinal+" .Muchas gracias por su compra");
     }
     else if(metodoDePago == 3){
         let cuotas = parseInt(prompt("En cuantas cuotas desea abonar? A continuacion lo intereses:\n*De 1 a 3 cuotas el interes es de 5%\n*De 4 a 8 el interes es de 10%\n*De 9 para adelante el interes es de 15%"));
-        precioFinal = calcularInteres(producto, cuotas);
+        precioFinal = calcularInteres(calcularIVA(precioInventario(producto)), cuotas);
         alert("El precio final en "+cuotas+" cuotas es de: $"+precioFinal+" .Muchas gracias por su compra");
     }
     else if(metodoDePago == 4){
