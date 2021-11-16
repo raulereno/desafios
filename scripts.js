@@ -37,30 +37,23 @@ let producto;
 //Funcion que mediante el numero elegido devuelve el precio del producto
 function precioInventario(numeroDeProducto){
     switch(numeroDeProducto){
-        case 1: 
-        alimento2Kg.ventaProducto();
-            return alimento2Kg.precio;
-        case 2: 
-            vacunas.ventaProducto();
-            return vacunas.precio;
-            case 3: 
-            return consultaGeneral.precio;
-        case 4: 
-            productoNuevo.ventaProducto();
-            return productoNuevo.precio;
+        case 1: return alimento2Kg.precio;
+        case 2: return vacunas.precio;
+        case 3: return consultaGeneral.precio;
+        case 4: return productoNuevo.precio;
     }
 }
 //Funcion que descuenta el producto seleccionado
 function descontarStock(numeroDeProducto){
     switch (numeroDeProducto){
         case 1: 
-            alimento2Kg.ventaProducto;
+            alimento2Kg.ventaProducto();
             break
         case 2: 
-            vacunas.ventaProducto;
+            vacunas.ventaProducto();
             break
         case 4: 
-            productoNuevo.ventaProducto;
+            productoNuevo.ventaProducto();
             break
     }
 }
