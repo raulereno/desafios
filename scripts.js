@@ -34,8 +34,10 @@ function calcularInteres(precio, cantidadDeCuotas){
         return precio + x;
     }
 }
+//Alerta explicando simulador
+alert('Este trabajo consta de dos fases: Un ingreso por parte del "dueño" de la tienda de los productos del catalogo y la segunda fase: la compra de los productos ingresados calculando intereses,descuentos,etc');
 
-const listaDeProductos = [] 
+const listaDeProductos = []; 
 //Carga de productos a un array de objetos
 alert("Bienvenido. A continuacion va a cargar el catalogo de productos. Primero ingrese la cantidad de productos que va ingresar.");
 
