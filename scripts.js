@@ -12,35 +12,42 @@ class Producto{
 function precioInventario(numeroDeProducto){
     return listaDeProductos[(numeroDeProducto-1)].precio
 }
-
-//Funcion que calcula el descuento por metodo de pago en efectivo
-function calcularDescuento(precio){
-    let descuento = (precio*10)/100;
-    return precio-descuento;
-}
-
-//Funcion que recibe el numero de producto y la cantidad de cuota, y calcula los intereses dependiendo de las cuotas
-function calcularInteres(precio, cantidadDeCuotas){
-    if((cantidadDeCuotas>=1) && (cantidadDeCuotas<=3)){
-        let x = (precio*5)/100;
-        return precio + x;
+//Funcion que ordena los productos de mayor a menor precio.
+function ordenarInventario(numero){
+    if(numero == "1"){
+        listaDeProductos.sort(function (a, b) {
+            if (a.precio > b.precio) {
+              return -1;
+            }
+            if (a.precio < b.precio) {
+              return 1;
+            }
+            // a must be equal to b
+            return 0;
+          });
+          return "La lista ordenada de MAYOR a MENOR quedo:\n"             
     }
-    else if((cantidadDeCuotas>=4) && (cantidadDeCuotas<=8)){
-        let x =(precio*10)/100;
-        return precio + x;
-    }
-    else if(cantidadDeCuotas>=9){
-        let x =(precio*15)/100;
-        return precio + x;
+    else if(numero == "2"){
+        listaDeProductos.sort(function (a, b) {
+            if (a.precio > b.precio) {
+              return 1;
+            }
+            if (a.precio < b.precio) {
+              return -1;
+            }
+            // a must be equal to b
+            return 0;
+          });
+          return "La lista ordenada de MENOR a MAYOR quedo:\n"   
     }
 }
 //Alerta explicando simulador
-alert('Este trabajo consta de dos fases: Un ingreso por parte del "dueño" de la tienda de los productos del catalogo y la segunda fase: la compra de los productos ingresados calculando intereses,descuentos,etc');
+alert('Este trabajo consta de : Un ingreso por parte del "dueño" de la tienda de los productos del catalogo y un mensaje que pregunta de que forma va a querer ordenar los productos.');
 
 const listaDeProductos = []; 
 //Carga de productos a un array de objetos
 alert("Bienvenido. A continuacion va a cargar el catalogo de productos. Primero ingrese la cantidad de productos que va ingresar.");
-
+//Pregunta cantidad de productos para asi tener un tope en el bucle
 let cantidadDeProductos = parseInt(prompt ("Cuantos productos va a ingresar?"));
 let largo;
 
@@ -55,10 +62,11 @@ do{
     largo = listaDeProductos.length;
     
 }while(cantidadDeProductos != largo);
-
+//Comprobacion por consola de la lista de objetos
 console.log(listaDeProductos);
  
-let mensaje = "Bienvenido a la tienda. Elija que producto desea comprar:\n"
+//Declaracion e iniciacion de variables, junto con un bucle. Objetivo: A traves del bucle iterar el nombre y precio de los productos para mostrarle al usuario los productos que ingreso.
+let mensaje = "";
 let contador = 1;
 
 for(let i = 0; i < cantidadDeProductos ; i++){
@@ -66,39 +74,19 @@ for(let i = 0; i < cantidadDeProductos ; i++){
      contador +=1 ;
  }
 
-console.log(mensaje);
+//El usuario va a elegir como ordenar el array de objetos
+let parametroDeOrdenamiento = prompt("La lista de producto es:\n"+mensaje+"\nDesea ordenarlas de:\n1.Mayor a menor precio\n2.Menor a mayor precio\nIngrese el numero: 1 o 2 para seleccionar las opciones");
 
-//Declaracion de metodo de pago
-let metodoDePago;
-//Seleccion de producto
-let producto =prompt(mensaje)
+//La funcion retorna el respectivo mensaje por esto esta almacenada en una variable
+let mensaje2 = ordenarInventario(parametroDeOrdenamiento);
 
-//Alerta para informar de que se procedera al metodo de pago
-alert("Ahora pasaremos al metodo de pago del producto seleccionado:");
+//"Reiniciamos" las variables a su valor original para asi utilizarlas junto con el bucle para mostrar la nueva lista ordenada
+ mensaje = "";
+ contador= 1
 
-do{
-    //Variable para guardar el precio final con descuento o intereses
-    let precioFinal;
-
-    metodoDePago = parseInt(prompt("Ustedes pagara con: \n1.Efectivo. Esta opcion tiene un descuento del 10% \n2.Debito. No posee ni intereses ni descuento \n3.Credito. Dependiendo de la cantidad de cuotas aumenta el interes\n4.Salir"));
-
-    if(metodoDePago == 1){
-        precioFinal = calcularDescuento(precioInventario(producto));
-        alert("El total a pagar es: $"+precioFinal+" .Muchas gracias por su compra");
-    }
-    else if(metodoDePago == 2) {
-        precioFinal = precioInventario(producto);
-        alert("El total a pagar es: $"+precioFinal+" .Muchas gracias por su compra");
-    }
-    else if(metodoDePago == 3){
-        let cuotas = parseInt(prompt("En cuantas cuotas desea abonar? A continuacion lo intereses:\n*De 1 a 3 cuotas el interes es de 5%\n*De 4 a 8 el interes es de 10%\n*De 9 para adelante el interes es de 15%"));
-        precioFinal = calcularInteres(precioInventario(producto), cuotas);
-        alert("El precio final en "+cuotas+" cuotas es de: $"+precioFinal+" .Muchas gracias por su compra");
-    }
-    else if(metodoDePago == 4){
-        alert("Muchas gracias por el interes vuelva cuando guste");
-        break
-    }
-
-    descontarStock(producto)
-}while((metodoDePago < 1) || (metodoDePago > 3)) //Para que el usuario ingrese una opcion correcta.
+ for(let i = 0; i < cantidadDeProductos ; i++){
+     mensaje += contador+"."+listaDeProductos[i].nombre+" . Precio:$"+listaDeProductos[i].precio+"\n";
+     contador +=1 ;
+ }
+//Mensaje de alerta con la lista ordenada como el usuario requirio
+alert(mensaje2+mensaje)
