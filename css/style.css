@@ -1,0 +1,138 @@
+.navYLogo_Productos {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+}
+
+.navYLogo_Productos .logo {
+  width: 8rem;
+  height: auto;
+  transition: all 0.6s;
+}
+
+.navYLogo_Productos .logo:hover {
+  transform: scale(1.1);
+}
+
+.navYLogo_Productos .menu__navegacion {
+  height: 2rem;
+}
+
+.navYLogo_Productos .menu__navegacion ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navYLogo_Productos .menu__navegacion ul li {
+  list-style: none;
+  margin: 3rem 1rem;
+}
+
+.navYLogo_Productos .menu__navegacion ul li a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: black;
+  transition: all 0.7s;
+}
+
+.navYLogo_Productos .menu__navegacion ul li a:hover {
+  padding: 8px;
+  border-radius: 2px;
+  color: #048600;
+  font-size: 1.5rem;
+}
+
+.h1_Productos {
+  background-color: #f8f8f8;
+  height: 5rem;
+}
+
+.cards_productos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards_productos .card {
+  margin: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navYLogo {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  position: sticky;
+}
+
+.navYLogo .logo {
+  width: 8rem;
+  height: auto;
+  filter: grayscale(90%);
+  transition: all 0.6s;
+}
+
+.navYLogo .logo:hover {
+  filter: none;
+  transform: scale(1.1);
+}
+
+.navYLogo .menu__navegacion {
+  height: 2rem;
+}
+
+.navYLogo .menu__navegacion ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navYLogo .menu__navegacion ul li {
+  list-style: none;
+  margin: 3rem 1rem;
+}
+
+.navYLogo .menu__navegacion ul li a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: #048600;
+  transition: all 0.7s;
+}
+
+.navYLogo .menu__navegacion ul li a:hover {
+  padding: 8px;
+  border-radius: 2px;
+  color: #048600;
+  font-size: 1.5rem;
+}
+
+.imagen__Header {
+  background: url(../images/FullHD.jpg) no-repeat top;
+  background-size: 100% 100%;
+  width: auto;
+  height: 100vh;
+}
+
+footer {
+  background-image: linear-gradient(#048600, #042A00);
+  display: flex;
+}
+
+footer iframe {
+  margin: 1rem;
+}
+
+footer .redes_Sociales {
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column;
+}
+
+footer .redes_Sociales a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+}
