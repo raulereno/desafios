@@ -49,11 +49,15 @@
 
 .cards_productos {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .cards_productos .card {
   margin: 1rem;
+}
+
+.cards_productos .card .card-img-top {
+  width: 15rem;
+  height: auto;
 }
 
 .menu_Lateral {

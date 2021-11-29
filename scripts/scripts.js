@@ -1,20 +1,20 @@
 //Creacion de la clase producto
 class Producto{
     constructor(precio,stock,opcion){
-        this.nombre = this.agregarNombre(opcion);
+        this.nombre = "";
         this.precio = parseFloat(precio);
         this.stock = parseInt(stock);
     }
     agregarNombre(opcion){
         switch (opcion){
             case 1:
-                this.nombre ="Pelota"
+                this.nombre = "Pelota";
                 break 
             case 2:
-                this.nombre = "Comedero"
+                this.nombre = "Comedero";
                 break
             case 3:
-                this.nombre = "Shampoo"
+                this.nombre = "Shampoo";
                 break
         }
     }
@@ -59,7 +59,7 @@ let productoElegido;
 let divPadreCards = document.getElementById("cards_productos");
 
 do{
-    productoElegido=prompt("Que producto desea agregar:\n1.Pelota de juguete\n2.Comedero\n3.Shampoo");
+    productoElegido=parseInt(prompt("Que producto desea agregar:\n1.Pelota de juguete\n2.Comedero\n3.Shampoo"));
     
     listaDeProductos.push(new Producto(
         prompt("Ingrese el PRECIO del producto "),
@@ -67,6 +67,7 @@ do{
         productoElegido
     ));
     
+    listaDeProductos[(productoElegido-1)].agregarNombre(productoElegido);
     
     let card = document.createElement("div");
     card.setAttribute("class", "card");
@@ -75,63 +76,15 @@ do{
 
     card.innerHTML =` <img src="../images/${productoElegido}.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">${listaDeProductos[0].nombre}</h5>
-                        <p class="card-text"></p>
+                        <h5 class="card-title">${listaDeProductos[(productoElegido-1)].nombre}</h5>
+                        <p class="card-text">Precio:$${listaDeProductos[(productoElegido-1)].precio}<br>Stock:${listaDeProductos[(productoElegido-1)].stock}</p>
                         <a href="#" class="btn btn-primary">Agregar al carrito</a>
                     </div>`;
 
     alert("-----------------------");
-    console.log(listaDeProductos);
     pregunta = prompt("Desea agregar otro producto? Si/No");
     
 }while(pregunta.toLowerCase() == "si");
 
 console.log(listaDeProductos);
- 
-let mensaje = "Bienvenido a la tienda. Elija que producto desea comprar:\n"
-let contador = 1;
-
-for(let i = 0; i < 3 ; i++){
-     mensaje += contador+"."+listaDeProductos[i].nombre+" . Precio:$"+listaDeProductos[i].precio+"\n";
-     contador +=1 ;
- }
-
-console.log(mensaje);
-
-//Declaracion de metodo de pago
-let metodoDePago;
-//Seleccion de producto
-let producto =prompt(mensaje)
-
-//Alerta para informar de que se procedera al metodo de pago
-alert("Ahora pasaremos al metodo de pago del producto seleccionado:");
-
-//Bucle para seleccionar correctamente los metodos de pago
-do{
-    //Variable para guardar el precio final con descuento o intereses
-    let precioFinal;
-
-    metodoDePago = parseInt(prompt("Ustedes pagara con: \n1.Efectivo. Esta opcion tiene un descuento del 10% \n2.Debito. No posee ni intereses ni descuento \n3.Credito. Dependiendo de la cantidad de cuotas aumenta el interes\n4.Salir"));
-
-    if(metodoDePago == 1){
-        precioFinal = calcularDescuento(precioInventario(producto));
-        alert("El total a pagar es: $"+precioFinal+" .Muchas gracias por su compra");
-    }
-    else if(metodoDePago == 2) {
-        precioFinal = precioInventario(producto);
-        alert("El total a pagar es: $"+precioFinal+" .Muchas gracias por su compra");
-    }
-    else if(metodoDePago == 3){
-        let cuotas = parseInt(prompt("En cuantas cuotas desea abonar? A continuacion lo intereses:\n*De 1 a 3 cuotas el interes es de 5%\n*De 4 a 8 el interes es de 10%\n*De 9 para adelante el interes es de 15%"));
-        precioFinal = calcularInteres(precioInventario(producto), cuotas);
-        alert("El precio final en "+cuotas+" cuotas es de: $"+precioFinal+" .Muchas gracias por su compra");
-    }
-    else if(metodoDePago == 4){
-        alert("Muchas gracias por el interes vuelva cuando guste");
-        break
-    }
-
-    descontarStock(producto)
-}while((metodoDePago < 1) || (metodoDePago > 3)) //Para que el usuario ingrese una opcion correcta.
-
 

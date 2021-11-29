@@ -43,9 +43,12 @@
 
 .cards_productos{
     display: flex;
-    flex-wrap: wrap;
     .card{
         margin: 1rem;
+        .card-img-top{
+            width: 15rem;
+            height: auto;
+        }
     }
 }
 
