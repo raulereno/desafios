@@ -56,6 +56,18 @@
   margin: 1rem;
 }
 
+.menu_Lateral {
+  margin-right: 3rem;
+}
+
+.menu_Lateral ul li {
+  list-style: none;
+}
+
+.menu_Lateral ul li a {
+  color: black;
+}
+
 * {
   margin: 0;
   padding: 0;

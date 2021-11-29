@@ -1,10 +1,22 @@
 //Creacion de la clase producto
 class Producto{
-    constructor(id,nombre,precio,stock){
-        this.id = parseInt(id);
-        this.nombre = nombre;
+    constructor(precio,stock,opcion){
+        this.nombre = this.agregarNombre(opcion);
         this.precio = parseFloat(precio);
         this.stock = parseInt(stock);
+    }
+    agregarNombre(opcion){
+        switch (opcion){
+            case 1:
+                this.nombre ="Pelota"
+                break 
+            case 2:
+                this.nombre = "Comedero"
+                break
+            case 3:
+                this.nombre = "Shampoo"
+                break
+        }
     }
 }
 //-------------------Funciones:---------------------
@@ -39,30 +51,47 @@ alert('Este trabajo consta de dos fases: Un ingreso por parte del "dueño" de la
 
 const listaDeProductos = []; 
 //Carga de productos a un array de objetos
-alert("Bienvenido. A continuacion va a cargar el catalogo de productos. Primero ingrese la cantidad de productos que va ingresar.");
+alert("Bienvenido. A continuacion va a cargar el catalogo de productos.");
 
-let cantidadDeProductos = parseInt(prompt ("Cuantos productos va a ingresar?"));
-//Variable para comparar la lista con la cantidad de productos que se va a ingresar
-let largo;
+//let card = document.createElement("div")
+let pregunta;
+let productoElegido;
+let divPadreCards = document.getElementById("cards_productos");
 
 do{
-    listaDeProductos.push(new Producto(
-        prompt("Ingrese el ID o codigo del producto"),
-        prompt("Ingrese el NOMBRE del producto"),
-        prompt("Ingrese el PRECIO del producto "),
-        prompt("Ingrese el STOCK disponible")
-    ));
-    alert("-----------------------")
-    largo = listaDeProductos.length;
+    productoElegido=prompt("Que producto desea agregar:\n1.Pelota de juguete\n2.Comedero\n3.Shampoo");
     
-}while(cantidadDeProductos != largo);
+    listaDeProductos.push(new Producto(
+        prompt("Ingrese el PRECIO del producto "),
+        prompt("Ingrese el STOCK disponible"),
+        productoElegido
+    ));
+    
+    
+    let card = document.createElement("div");
+    card.setAttribute("class", "card");
+    card.setAttribute("style","width: 18rem;");
+    divPadreCards.appendChild(card);
+
+    card.innerHTML =` <img src="../images/${productoElegido}.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${listaDeProductos[0].nombre}</h5>
+                        <p class="card-text"></p>
+                        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                    </div>`;
+
+    alert("-----------------------");
+    console.log(listaDeProductos);
+    pregunta = prompt("Desea agregar otro producto? Si/No");
+    
+}while(pregunta.toLowerCase() == "si");
 
 console.log(listaDeProductos);
  
 let mensaje = "Bienvenido a la tienda. Elija que producto desea comprar:\n"
 let contador = 1;
 
-for(let i = 0; i < cantidadDeProductos ; i++){
+for(let i = 0; i < 3 ; i++){
      mensaje += contador+"."+listaDeProductos[i].nombre+" . Precio:$"+listaDeProductos[i].precio+"\n";
      contador +=1 ;
  }
@@ -104,3 +133,5 @@ do{
 
     descontarStock(producto)
 }while((metodoDePago < 1) || (metodoDePago > 3)) //Para que el usuario ingrese una opcion correcta.
+
+
