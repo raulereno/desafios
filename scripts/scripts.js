@@ -1,6 +1,6 @@
 //Creacion de la clase producto
 class Producto{
-    constructor(precio,stock,opcion){
+    constructor(precio,stock){
         this.nombre = "";
         this.precio = parseFloat(precio);
         this.stock = parseInt(stock);
@@ -59,21 +59,26 @@ let productoElegido;
 let divPadreCards = document.getElementById("cards_productos");
 
 do{
+    //Eleccion de producto
     productoElegido=parseInt(prompt("Que producto desea agregar:\n1.Pelota de juguete\n2.Comedero\n3.Shampoo"));
-    
+    //Creacion de objeto nuevo, enviando por parametro el precio y el stock
     listaDeProductos.push(new Producto(
         prompt("Ingrese el PRECIO del producto "),
         prompt("Ingrese el STOCK disponible"),
         productoElegido
     ));
-    
+    //Llamado a la funcion de metodo agregar nombre para establecer el nombre del nuevo objeto. El metodo pertenece a la clase Producto
     listaDeProductos[(productoElegido-1)].agregarNombre(productoElegido);
     
+    //Creacion de un elemento en el html
     let card = document.createElement("div");
+    //Agregando atributos al nuevo elemento
     card.setAttribute("class", "card");
     card.setAttribute("style","width: 18rem;");
+    //Asignacion del nodo hijo al nodo padre
     divPadreCards.appendChild(card);
 
+    //Utilizacion de plantillas literales para crear la estructura interna que va a tener el elemento
     card.innerHTML =` <img src="../images/${productoElegido}.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">${listaDeProductos[(productoElegido-1)].nombre}</h5>
@@ -82,9 +87,10 @@ do{
                     </div>`;
 
     alert("-----------------------");
+    //Condicion para salir del bucle do...while
     pregunta = prompt("Desea agregar otro producto? Si/No");
     
 }while(pregunta.toLowerCase() == "si");
-
+//console log para testear funcionamiento del bucle y las iteraciones que va agregando objetos nuevos
 console.log(listaDeProductos);
 
