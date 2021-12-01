@@ -12,36 +12,85 @@
 </head>
 
 <body>
-    
+
+    <div class="navYLogo_Productos">
+        <a href="../index.html"><img src="../images/amazonia logo verde.png" alt="Logo Amazonia" class="logo"></a>
+        <nav class="menu__navegacion">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="quienesSomos.html">Quienes Somos</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><button type="button" class="btn position-relative botonCarrito" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <img src="../images/shopping_cart_black_24dp.svg" alt="" class="carritoDeCompras">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            id="cantProductos">
+                            0
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button></li>
+                <!-- Ventana OFFCANVAS de Bootstrap -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="offcanvasRightLabel">Carrito</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <h4>Cantidad de productos:</h4>
+                        <h4 id="prodTotalesVentana">0</h4>
+                        <h4>Total a pagar: </h4>
+                        <h4 id="montoTotal">$0</h4>
+                        <button type="button" class="btn btn-secondary" id="finalizarCompra">Finalizar Compra</button>
+                    </div>
+                </div>
+                <li><img src="../images/account_circle_black_24dp.svg" alt="ingreso de usuario" class="ingresoAdmin"
+                        data-bs-toggle="modal" data-bs-target="#exampleModal"></li>
+                <!-- Ventana MODAL de Bootstrap -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ingreso de Administrador</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Estamos trabajando para incorporar un usuario Administrador </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary">Entrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </div>
     <header>
-        <div class="navYLogo_Productos">
-            <a href="../index.html"><img src="../images/amazonia logo verde.png" alt="Logo Amazonia" class="logo"></a>
-            <nav class="menu__navegacion">
-                <ul>
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
-                    <li><a href="quienesSomos.html">Quienes Somos</a></li>
-                    <li><a href="galeria.html">Galeria</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1 class="h1_Productos">Productos</h1>
     </header>
-    <h1 class="h1_Productos">Productos</h1>
     <div class="d-flex">
         <div class="menu_Lateral">
-            <aside>
-                <h2>Categoria</h2>
-                <ul>
-                    <li><a href="">Accesorios</a></li>
-                    <li><a href="">Balanceado</a></li>
-                    <li><a href="">Farmacia</a></li>
-                </ul>
-            </aside>
+            <!-- <aside>
+                    <h2>Categoria</h2>
+                    <ul>
+                        <li><a href="">Accesorios</a></li>
+                        <li><a href="">Balanceado</a></li>
+                        <li><a href="">Farmacia</a></li>
+                    </ul>
+                </aside> -->
         </div>
         <div id="cards_productos" class="cards_productos">
         </div>
     </div>
 
+
+    <script src="../scripts/carrito.js"></script>
     <script src="../scripts/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">

@@ -1,7 +1,9 @@
+
 .navYLogo_Productos{
     display: flex;
     justify-content: space-between;
     height: auto;
+    
 
     .logo {
         width: 8rem;
@@ -20,6 +22,15 @@
             li {
                 list-style: none;
                 margin: 3rem 1rem;
+                .botonCarrito{
+                    padding: 0;
+                }
+                .carritoDeCompras,.ingresoAdmin{
+                    &:hover{
+                        cursor:pointer;
+                        transform: scale(1.2);
+                    }
+                }
                 a {
                     text-decoration: none;
                     font-size: 1.3rem;
@@ -43,11 +54,15 @@
 
 .cards_productos{
     display: flex;
+    flex-wrap: wrap;
     .card{
         margin: 1rem;
+        display: flex; 
         .card-img-top{
-            width: 15rem;
-            height: auto;
+            width: auto;
+            height: 15rem;
+            justify-self: center;
+            
         }
     }
 }

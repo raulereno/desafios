@@ -28,6 +28,15 @@
   margin: 3rem 1rem;
 }
 
+.navYLogo_Productos .menu__navegacion ul li .botonCarrito {
+  padding: 0;
+}
+
+.navYLogo_Productos .menu__navegacion ul li .carritoDeCompras:hover, .navYLogo_Productos .menu__navegacion ul li .ingresoAdmin:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
 .navYLogo_Productos .menu__navegacion ul li a {
   text-decoration: none;
   font-size: 1.3rem;
@@ -49,15 +58,18 @@
 
 .cards_productos {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .cards_productos .card {
   margin: 1rem;
+  display: flex;
 }
 
 .cards_productos .card .card-img-top {
-  width: 15rem;
-  height: auto;
+  width: auto;
+  height: 15rem;
+  justify-self: center;
 }
 
 .menu_Lateral {

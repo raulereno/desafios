@@ -1,22 +1,10 @@
 //Creacion de la clase producto
 class Producto{
-    constructor(precio,stock){
-        this.nombre = "";
+    constructor(nombre,precio,stock,codigo){
+        this.nombre = nombre;
         this.precio = parseFloat(precio);
         this.stock = parseInt(stock);
-    }
-    agregarNombre(opcion){
-        switch (opcion){
-            case 1:
-                this.nombre = "Pelota";
-                break 
-            case 2:
-                this.nombre = "Comedero";
-                break
-            case 3:
-                this.nombre = "Shampoo";
-                break
-        }
+        this.codigo = parseInt(codigo)
     }
 }
 //-------------------Funciones:---------------------
@@ -46,51 +34,44 @@ function calcularInteres(precio, cantidadDeCuotas){
         return precio + x;
     }
 }
-//Alerta explicando simulador
-alert('Este trabajo consta de dos fases: Un ingreso por parte del "dueño" de la tienda de los productos del catalogo y la segunda fase: la compra de los productos ingresados calculando intereses,descuentos,etc');
 
 const listaDeProductos = []; 
-//Carga de productos a un array de objetos
-alert("Bienvenido. A continuacion va a cargar el catalogo de productos.");
-
 //let card = document.createElement("div")
 let pregunta;
-let productoElegido;
 let divPadreCards = document.getElementById("cards_productos");
 
-do{
-    //Eleccion de producto
-    productoElegido=parseInt(prompt("Que producto desea agregar:\n1.Pelota de juguete\n2.Comedero\n3.Shampoo"));
-    //Creacion de objeto nuevo, enviando por parametro el precio y el stock
-    listaDeProductos.push(new Producto(
-        prompt("Ingrese el PRECIO del producto "),
-        prompt("Ingrese el STOCK disponible"),
-        productoElegido
-    ));
-    //Llamado a la funcion de metodo agregar nombre para establecer el nombre del nuevo objeto. El metodo pertenece a la clase Producto
-    listaDeProductos[(productoElegido-1)].agregarNombre(productoElegido);
-    
-    //Creacion de un elemento en el html
+
+
+
+listaDeProductos.push(new Producto("Pelota de Goma",300,6,1));
+listaDeProductos.push(new Producto("Cepillo de Dientes",150,10,2));
+listaDeProductos.push(new Producto("Hueso Grande",250,8,3));
+listaDeProductos.push(new Producto("Shampoo Antiparasitario",350,10,4));
+listaDeProductos.push(new Producto("Corta Uñas",500,5,0005));
+listaDeProductos.push(new Producto("Collar con Cascabel",400,11,6));
+listaDeProductos.push(new Producto("Espuma Seca",550,6,7));
+listaDeProductos.push(new Producto("Cepillo para pelos",550,15,8));
+listaDeProductos.push(new Producto("Comederos",280,18,9));
+
+console.log(listaDeProductos)
+//Utilizar una sola plantilla literal y usar un for...in o for..of? para recorrer el array de objetos e ir agregando las propiedades al objeto
+
+//USAR UN FOR..OF
+for(const producto of listaDeProductos){
     let card = document.createElement("div");
     //Agregando atributos al nuevo elemento
     card.setAttribute("class", "card");
-    card.setAttribute("style","width: 18rem;");
+    card.setAttribute("style","width: 15rem;");
+    //Utilizacion de plantillas literales para crear la estructura interna que va a tener el elemento
+    card.innerHTML =
+    ` <img src="../images/${producto.codigo}.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">${producto.nombre}</h5>
+        <p class="card-text">Precio:$${producto.precio}<br>Stock:${producto.stock}</p>
+        <button class="btn btn-primary" id="${producto.codigo}">Agregar al carrito</button>
+    </div>`;
+
     //Asignacion del nodo hijo al nodo padre
     divPadreCards.appendChild(card);
-
-    //Utilizacion de plantillas literales para crear la estructura interna que va a tener el elemento
-    card.innerHTML =` <img src="../images/${productoElegido}.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${listaDeProductos[(productoElegido-1)].nombre}</h5>
-                        <p class="card-text">Precio:$${listaDeProductos[(productoElegido-1)].precio}<br>Stock:${listaDeProductos[(productoElegido-1)].stock}</p>
-                        <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                    </div>`;
-
-    alert("-----------------------");
-    //Condicion para salir del bucle do...while
-    pregunta = prompt("Desea agregar otro producto? Si/No");
-    
-}while(pregunta.toLowerCase() == "si");
-//console log para testear funcionamiento del bucle y las iteraciones que va agregando objetos nuevos
-console.log(listaDeProductos);
-
+    document.getElementById(`${producto.codigo}`).onclick = () => agregarAlCarro(`${producto.codigo}`);
+}
