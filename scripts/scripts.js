@@ -75,3 +75,5 @@ for(const producto of listaDeProductos){
     divPadreCards.appendChild(card);
     document.getElementById(`${producto.codigo}`).onclick = () => agregarAlCarro(`${producto.codigo}`);
 }
+
+
