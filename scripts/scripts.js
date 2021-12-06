@@ -67,7 +67,7 @@ for(const producto of listaDeProductos){
     ` <img src="../images/${producto.codigo}.jpg" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title">${producto.nombre}</h5>
-        <p class="card-text">Precio:$${producto.precio}<br>Stock:${producto.stock}</p>
+        <p class="card-text">Precio:$${producto.precio}<br>Stock: ${producto.stock}</p>
         <button class="btn btn-primary" id="${producto.codigo}">Agregar al carrito</button>
     </div>`;
 
