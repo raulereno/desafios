@@ -34,15 +34,11 @@ function calcularInteres(precio, cantidadDeCuotas){
         return precio + x;
     }
 }
-
+//Lista de productos
 const listaDeProductos = []; 
-//let card = document.createElement("div")
-let pregunta;
+
 let divPadreCards = document.getElementById("cards_productos");
-
-
-
-
+//Creacion de lo productos
 listaDeProductos.push(new Producto("Pelota de Goma",300,6,1));
 listaDeProductos.push(new Producto("Cepillo de Dientes",150,10,2));
 listaDeProductos.push(new Producto("Hueso Grande",250,8,3));
@@ -54,9 +50,8 @@ listaDeProductos.push(new Producto("Cepillo para pelos",550,15,8));
 listaDeProductos.push(new Producto("Comederos",280,18,9));
 
 console.log(listaDeProductos)
-//Utilizar una sola plantilla literal y usar un for...in o for..of? para recorrer el array de objetos e ir agregando las propiedades al objeto
 
-//USAR UN FOR..OF
+//For...of que recorre la lista de objetos y va creando las cards correspondientes
 for(const producto of listaDeProductos){
     let card = document.createElement("div");
     //Agregando atributos al nuevo elemento
@@ -73,7 +68,6 @@ for(const producto of listaDeProductos){
 
     //Asignacion del nodo hijo al nodo padre
     divPadreCards.appendChild(card);
+    //Tomo el elemento por codigo y le ponemos un evento onClick para agregar al carro
     document.getElementById(`${producto.codigo}`).onclick = () => agregarAlCarro(`${producto.codigo}`);
 }
-
-

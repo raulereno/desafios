@@ -1,6 +1,6 @@
 let carrito =[];
 
-let botonFinalizar = document.getElementById("finalizarCompra").onclick = () =>finalizarCompra();
+let botonFinalizar = document.getElementById("finalizarCompra").onclick = () => finalizarCompra();
 let montoTotalAPagar = document.getElementById("montoTotal");
 let cantidadDeProductos = document.getElementById("cantProductos");
 let cantidadDeProductos2= document.getElementById("prodTotalesVentana");

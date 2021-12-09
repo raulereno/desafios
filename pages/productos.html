@@ -58,22 +58,22 @@
                             <h5 class="modal-title" id="exampleModalLabel">Ingreso de Administrador</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="">
-                            <div class="modal-body modal_Admin">
-                                    <p>Ingrese por primera vez su usuario y contraseña, si ya fue ingresado utilice las mismas credenciales que la primera vez.</p>
+                        <form id="formularioIngreso" action="" >
+                            <div id="bodyModal" class="modal-body modal_Admin">
+                                    <p>Establezca contraseña por primera vez</p>
                                     <div>
                                         <label for="usuario"><img src="../images/account_circle_black_24dp.svg"
                                                 alt="ingreso de usuario"></label>
-                                        <input name="usuario" type="text" placeholder="Ingrese su usuario">
+                                        <input id="campoUsuario" name="usuario" type="text" placeholder="Ingrese su usuario" value="">
                                     </div>
                                     <div>
                                         <label for="contraseña"><img src="../images/key_black_24dp.svg" alt=""></label>
-                                        <input name="contraseña" type="password" placeholder="Ingrese su contraseña">
+                                        <input id="campoContrasenia" name="contraseña" type="password" placeholder="Ingrese su contraseña" value="">
                                     </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <input type="submit" class="btn btn-primary" value="Entrar"></button>
+                                <input type="submit" class="btn btn-primary" value="Entrar" id="botonIngresar"></input>
                             </div>
                         </form>
                     </div>
@@ -100,12 +100,12 @@
     </div>
 
 
-    <script src="../scripts/scripts.js"></script>
-    <script src="../scripts/carrito.js"></script>
-    <script src="../scripts/localStorage.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <script src="../scripts/scripts.js"></script>
+    <script src="../scripts/carrito.js"></script>
+    <script src="../scripts/validacionDeFormularios.js"></script>
 </body>
 
 </html>
