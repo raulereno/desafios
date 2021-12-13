@@ -13,6 +13,7 @@ let cantidad=0;
 if (localStorage.getItem("carritoPersistencia") != null) { 
     carrito=JSON.parse(localStorage.getItem("carritoPersistencia"));
     calcularTotal()
+    console.log(carrito);
 }
 
 //Funcion que agrega productos al carrito, es llamada desde el archivo scripts linea 72. 
