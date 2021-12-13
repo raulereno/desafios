@@ -39,11 +39,48 @@
                             aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <h4>Cantidad de productos:</h4>
-                        <h4 id="prodTotalesVentana">0</h4>
-                        <h4>Total a pagar: </h4>
-                        <h4 id="montoTotal">$0</h4>
-                        <button type="button" class="btn btn-secondary" id="finalizarCompra">Finalizar Compra</button>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody id="tablaBody">
+                                <!-- Aca va el contenido de la tabla -->
+                              <!-- <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                              </tr> -->
+                            </tbody>
+                          </table>
+                        <div class="infoCarrito">
+                            <div class="cantidadProductos">
+                                <h5>Cantidad de productos</h5>
+                                <p id="prodTotalesVentana">0</p>
+                            </div>
+                            <div class="totalAPagar">
+                                <h5>Total a pagar</h5>
+                                <p id="montoTotal">$0</p>
+                            </div>
+                            <button type="button" class="btn btn-success botonFinalizar" id="finalizarCompra">Finalizar Compra</button>
+                        </div>
                     </div>
                 </div>
                 <li><img src="../images/account_circle_black_24dp.svg" alt="ingreso de usuario" class="ingresoAdmin"
@@ -99,13 +136,16 @@
         </div>
     </div>
 
-
+    <!-- CDN de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <!-- CDN de JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Scripts propios -->
+    <script src="../scripts/productos.js"></script>
     <script src="../scripts/scripts.js"></script>
     <script src="../scripts/carrito.js"></script>
-    <script src="../scripts/validacionDeFormularios.js"></script>
 </body>
 
 </html>

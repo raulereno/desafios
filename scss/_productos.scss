@@ -45,6 +45,57 @@
                 }
             }
         }
+        .offcanvas-end{
+            width: 500px;
+            .offcanvas-body{
+                padding: 0;
+                .imgCarrito{
+                    width: 4.5rem;
+                    border: 1px solid rgb(213, 253, 197);
+                }
+                .basureroCarrito{
+                    width: 30px;
+                    &:hover{
+                        transform: scale(1.1);
+                    }
+                }
+            }
+            .infoCarrito{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                border-top: 1px solid black;
+
+                .cantidadProductos{
+                    display: flex;
+                    flex-direction: column;
+                    background-color: rgb(228, 228, 228);
+                    padding: 0 0.5rem 0 0.5rem;
+                    h5{
+                        font-size: 1rem;
+                    }
+                    p{
+                        align-self: center;
+                    }
+                }
+                .totalAPagar{
+                    display: flex;
+                    flex-direction: column;
+                    background-color: rgb(228, 228, 228);
+                    padding: 0 1rem 0 1rem;
+                    h5{
+                        font-size: 1.2rem;
+                    }
+                    p{
+                        align-self: center;
+                    }
+                }
+                .botonFinalizar{
+                    height: 2.5rem;
+                    align-self: center;
+                }
+            }
+        }
         .modal_Admin{
             p{
                 text-align: center;
