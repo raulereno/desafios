@@ -63,4 +63,5 @@ function finalizarCompra(){
     cantidadDeProductos.html ( 0 );
     cantidadDeProductos2.html( 0 );
     cantidad=0;
+    $(`#tablaBody`).html("");
 }
