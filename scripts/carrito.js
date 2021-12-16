@@ -45,6 +45,13 @@ function agregarAlCarro(producto){
     cantidadDeProductos.html (cantidad);
     cantidadDeProductos2.html(cantidad);
     console.log(cantidad);
+
+    $(`#${producto.codigo}`).css("background","green").fadeOut(800, () =>{
+        $(`#${producto.codigo}`).html("Agregado ✔️")
+     } ).fadeIn(800).fadeOut(800,() =>{
+        $(`#${producto.codigo}`).html("Agregar a carrito")}).fadeIn(800, () =>{ 
+            $(`#${producto.codigo}`).css("background", "#0d6efd")
+        } );
 }
 
 //Función que calcula el total de los precios
