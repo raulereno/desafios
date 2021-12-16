@@ -44,7 +44,7 @@ for(const producto of listaDeProductos){
     <div class="card-body">
         <h5 class="card-title">${producto.nombre}</h5>
         <p class="card-text">Precio:$${producto.precio}<br>Stock: ${producto.stock}</p>
-        <button class="btn btn-primary" id="${producto.codigo}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Agregado correctamente al carrito">Agregar a carrito</button>
+        <button class="btn btn-primary" id="${producto.codigo}">Agregar a carrito</button>
     </div>`;
     //Asignacion del nodo hijo al nodo padre
     divPadreCards.appendChild(card);
