@@ -1,25 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Galeria de Fotos || Amazonia</title>
+    <title>WikiDog || Amazonia</title>
 </head>
+
 <body>
     <header>
         <div class="navYLogo_Productos">
-            <a href="../index.html"><img src="../images/amazonia logo verde.png" alt="Logo Amazonia" class="logo"></a>
+            <a href="../index.html"><img src="../images/amazonia logo blanco.png" alt="Logo Amazonia" class="logo"></a>
             <nav class="menu__navegacion">
                 <ul>
                     <li><a href="../index.html">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="quienesSomos.html">Quienes Somos</a></li>
-                    <li><a href="galeria.html">Galeria</a></li>
+                    <li><a href="galeria.html">WikiDog</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    <style>
+        body {
+            background: #20262E;
+            padding: 20px;
+        }
+        #banner-message {
+            background: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            font-size: 25px;
+            text-align: center;
+            transition: all 0.2s;
+            margin: 0 auto;
+            width: 500px;
+        }
+
+        #breed_data {
+            background: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            font-size: 12px;
+            text-align: left;
+            transition: all 0.2s;
+            margin: 0 auto;
+            width: 500px;
+        }
+
+        #breed_image {
+            background: #fff;
+            margin: 0 auto;
+            width: 460px;
+        }
+    </style>
+    <div id="banner-message">
+        <p>Selecciona una raza</p>
+
+        <select id="breed_select" >
+            <option>Seleccione una raza...</option>
+        </select>
+
+    </div>
+    <div id="breed_data">
+        <img id="breed_image" src="" />
+        <!-- EN PROCESO -->
+        <!-- <p>
+            Breed Data
+        </p>
+        <table id="breed_data_table">
+
+        </table> -->
+    </div>
+    <!-- CDN de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <!-- CDN de JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../scripts/wikidog.js"></script>
 </body>
+
 </html>
