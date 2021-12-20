@@ -6,6 +6,7 @@ const URLGET = "https://api.thedogapi.com/v1/breeds";
 let razas= [];
 $("#breed_select").change(()=>{
     let razaSeleccionada = $(`select[id=breed_select]`).val();
+    console.log(razaSeleccionada);
     mostrarRaza(razaSeleccionada);
 })
 
@@ -20,7 +21,7 @@ function obtenerDatos(){
 
             for (const raza of razas) {
                 $("#breed_select").append(
-                    `<option id="${raza.id}" value="${raza.id}">${raza.name}</option>`
+                    `<option id="${raza.id}" value="${raza.name}">${raza.name}</option>`
                 )                
             }
         }
@@ -28,7 +29,11 @@ function obtenerDatos(){
 }
 
 function mostrarRaza(id){
-    console.log(id);
-    let imagen = razas[id-1].image;
+    
+    let parametro = (nombre) => nombre.name === id;
+    let encontrado = razas.findIndex(parametro)
+    console.log(encontrado);
+    let imagen = razas[encontrado].image;
     $("#breed_image").attr(`src`, imagen.url );
 }
+//Para la siguiente preentrega pondre el
