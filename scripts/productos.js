@@ -17,7 +17,7 @@ $( document ).ready(function()
 
 //Lista de productos
 const listaDeProductos = []; 
-
+//Tomando elemento padre
 let divPadreCards = document.getElementById("cards_productos");
 //Creacion de lo productos
 listaDeProductos.push(new Producto("Pelota de Goma",300,6,1,"pelotaDeGoma.jpg"));
